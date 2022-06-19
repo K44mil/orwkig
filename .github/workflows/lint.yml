@@ -14,7 +14,6 @@ jobs:
         env:
           cache-name: cache-node-modules
         with:
-          token: ${{ secrets.ACCESS_TOKEN }}
           path: ~/.npm
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
@@ -38,7 +37,6 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
@@ -53,7 +51,6 @@ jobs:
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
       - run: npm ci
