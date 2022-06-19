@@ -58,6 +58,7 @@ jobs:
       - run: npm test
   
   deploy:
+    needs: [lint, build, test]
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
