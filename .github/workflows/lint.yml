@@ -20,6 +20,8 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+          
       - name: Install Dependencies
         run: npm ci
 
@@ -37,6 +39,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - run: npm ci
       - run: npm run build --if-present
       - run: npm test
@@ -51,6 +54,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       - run: npm ci
       - run: npm test
   
