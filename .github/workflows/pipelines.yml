@@ -1,7 +1,5 @@
-name: lint
-
+name: pipelines
 on: push
-
 jobs:
   lint:
     runs-on: ubuntu-latest
