@@ -4,6 +4,6 @@ import { TITLE } from './title';
 @Injectable()
 export class AppService {
   getHello(): string {
-    return `${TITLE}`;
+    return TITLE;
   }
 }
