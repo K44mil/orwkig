@@ -18,7 +18,12 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-          
+            
+      - name: Set NPM Registry
+        run: 
+            echo "//npm.pkg.github.com/:_authToken=${{ secrets.ACCESS_TOKEN }}" > .npmrc
+            echo "@pbochnak:registry=https://npm.pkg.github.com/" >> .npmrc
+      
       - name: Install Dependencies
         run: npm ci
 
